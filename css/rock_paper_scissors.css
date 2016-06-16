@@ -1,0 +1,22 @@
+body.start {
+    background-color: orange;
+}
+
+button {
+    color: white;
+    background-color: red;
+    width: 200px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+button:hover {
+        color: red;
+        background-color: white;
+}
+
+
+
+body.game {
+    background-color: green;
+}

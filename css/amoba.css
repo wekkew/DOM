@@ -1,0 +1,83 @@
+body {
+    background: rgb(210,114,74);
+    background-image: url(/Users/wekkew/Documents/Learning/HTML_basics/img/ew.bird.png);
+    background-size: 200px;
+
+}
+header {
+    margin-top: 50px;
+    font-size: 20pt;
+    font-weight: bold;
+    text-align: center;
+    color: darkgreen;
+
+}
+.input {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+button {
+    font-size: 25pt;
+    border-radius: 25%;
+    border: solid 2px white;
+    background-color: green;
+    color: white;
+}
+button:hover {
+    border: solid 2px green;
+    background-color: white;
+    color: green;
+
+}
+.table > button {
+    font-size: 15pt;
+    position: relative;
+    left: 5%;
+    margin-left: -5px;
+}
+
+#restart {
+    margin-left: 10px;
+}
+
+#outerBorder {
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    background-color: white;
+    border: solid 1px darkgreen;
+}
+
+.turn {
+    margin: 40px;
+}
+
+.tile {
+    background-color: white;
+    box-sizing: border-box;
+    float: left;
+    border: solid 1px black;
+    height: 40px;
+    width: 40px;
+}
+
+.ex {
+    background-color: white;
+    box-sizing: border-box;
+    float: left;
+    border: solid 1px black;
+    height: 40px;
+    width: 40px;
+    background-color: lightgreen;
+    background-image: url(../ex.png);
+}
+.circle {
+    background-color: white;
+    box-sizing: border-box;
+    float: left;
+    border: solid 1px black;
+    height: 40px;
+    width: 40px;
+    background-color: red;
+    background-image: url(../circle.png);
+}
