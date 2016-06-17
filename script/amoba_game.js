@@ -4,7 +4,6 @@ function amoba () {
     var firstPlayer = document.getElementById('firstplayer').value;
     var secondPlayer = document.getElementById('secondplayer').value;
 
-
     document.getElementById('alfaromeo').remove();
     // document.getElementById('size').remove();
     // document.getElementById('go-button').remove();
@@ -30,17 +29,31 @@ function amoba () {
     outerBorder.setAttribute('style', ['width: ' + tileSize + 'px', 'height: ' + tileSize + 'px'].join(';'));
     document.body.appendChild(outerBorder);
 
+    var firstPlayerCounter = document.createElement('p');
+    var firstCounter = 0;
+    firstPlayerCounter.setAttribute('id', 'firstCounter');
+    firstPlayerCounter.setAttribute('class', 'counter');
+    firstPlayerCounter.textContent = firstPlayer + " : " + firstCounter + " points";
+    document.body.appendChild(firstPlayerCounter);
+    var secondCounter = 0;
+    var secondPlayerCounter = document.createElement('p');
+    secondPlayerCounter.setAttribute('id', 'secondCounter');
+    secondPlayerCounter.setAttribute('class', 'counter');
+    secondPlayerCounter.textContent = secondPlayer + " : " + secondCounter + " points";
+    document.body.appendChild(secondPlayerCounter);
+
     function newGame() {
         window.history.go();
     }
     var newgame = document.createElement('button');
     newgame.setAttribute('id', 'newgame');
-    newgame.setAttribute('style', ['margin-top:' + ((sizeInt * 40)+20) + 'px'].join(';'));
+    newgame.setAttribute('style', ['margin-top: 20px'].join(';'));
     newgame.textContent = "New";
     document.body.appendChild(newgame);
     newgame.addEventListener('click', newGame);
 
     function reStart() {
+
         board = [];
         for (var boardIndex = 0; boardIndex < sizeInt; boardIndex += 1) {
             var inner = new Array(sizeInt);
@@ -54,7 +67,7 @@ function amoba () {
     }
     var restart = document.createElement('button');
     restart.setAttribute('id', 'restart');
-    restart.setAttribute('style', ['margin-top:' + ((sizeInt * 40)+20) + 'px'].join(';'));
+    restart.setAttribute('style', ['margin-top: 20px'].join(';'));
     restart.textContent = "Restart"
     document.body.appendChild(restart);
     restart.addEventListener('click', reStart);
@@ -99,10 +112,30 @@ function amoba () {
         var diff = max - 1;
 
         function check() {
-
-
             var currentY = yPos;
             var currentX = xPos;
+
+            function winner() {
+                if (firstPlayer === 'Kristof') {
+                    window.alert("Kristof has won!");
+                    firstCounter += 1;
+                    document.getElementById('firstCounter').textContent = firstPlayer + " : " + firstCounter + " points";
+                    reStart();
+                }
+                if (board[currentY][currentX] === 1) {
+                    window.alert(firstPlayer + " has won!");
+                    firstCounter += 1;
+                    document.getElementById('firstCounter').textContent = firstPlayer + " : " + firstCounter + " points";
+                    reStart();
+                }
+                if (board[currentY][currentX] === 2) {
+                    window.alert(secondPlayer + " has won!");
+                    secondCounter += 1;
+                    document.getElementById('secondCounter').textContent = secondPlayer + " : " + secondCounter + " points";
+                    reStart();
+                }
+            }
+
 
             // horiontal check
             // xStart = the "x" coordinates from where the check starts
@@ -129,17 +162,8 @@ function amoba () {
                     }
                 }
                 if (finish) {
-                    setTimeout(function() {
-                        if (board[currentY][currentX] === 1) {
-                            window.alert(firstPlayer + " has won!");
-                            reStart();
-                        }
-                        else {
-                            window.alert(secondPlayer + " has won!");
-                            reStart();
-
-                        }
-                    }, 100);
+                    setTimeout(winner, 10);
+                    break;
                 }
             }
 
@@ -167,17 +191,8 @@ function amoba () {
                     }
                 }
                 if (finish) {
-                    setTimeout(function() {
-                        if (board[currentY][currentX] === 1) {
-                            window.alert(firstPlayer + " has won!");
-                            reStart();
-                        }
-                        else {
-                            window.alert(secondPlayer + " has won!");
-                            reStart();
-
-                        }
-                    }, 100);
+                    setTimeout(winner, 10);
+                    break;
                 }
             }
 
@@ -202,17 +217,8 @@ function amoba () {
                     }
                 }
                 if (finish) {
-                    setTimeout(function() {
-                        if (board[currentY][currentX] === 1) {
-                            window.alert(firstPlayer + " has won!");
-                            reStart();
-                        }
-                        else {
-                            window.alert(secondPlayer + " has won!");
-                            reStart();
-
-                        }
-                    }, 100);
+                    setTimeout(winner, 10);
+                    break;
                 }
             }
 
@@ -238,17 +244,8 @@ function amoba () {
                     }
                 }
                 if (finish) {
-                    setTimeout(function() {
-                        if (board[currentY][currentX] === 1) {
-                            window.alert(firstPlayer + " has won!");
-                            reStart();
-                        }
-                        else {
-                            window.alert(secondPlayer + " has won!");
-                            reStart();
-
-                        }
-                    }, 100);
+                    setTimeout(winner, 10);
+                    break;
                 }
             }
             var tie = true;
