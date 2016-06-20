@@ -260,7 +260,7 @@ function amoba () {
                 setTimeout(function(){
                     window.alert('tie');
                     reStart();
-                }, 100);
+                }, 10);
             }
         };
 
